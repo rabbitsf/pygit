@@ -16,5 +16,3 @@ def greeting(your_name):
 
 if __name__ == "__maim__":
     app.run()
-
-
