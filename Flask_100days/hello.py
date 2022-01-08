@@ -1,10 +1,16 @@
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
     return "Hello World!"
+
+@app.route('/my_browser')
+def my_browser():
+    user_agent = request.headers.get('User-Agent')
+    return f"You are using {user_agent}"
 
 @app.route('/bye')
 def bye():
@@ -14,7 +20,8 @@ def bye():
 def greeting(your_name):
     return f'Hello {your_name}!'
 
-if __name__ == "__maim__":
-    app.run()
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
